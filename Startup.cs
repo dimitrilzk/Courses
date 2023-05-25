@@ -40,7 +40,7 @@ namespace WebApplication4
 
                 endpoints.MapControllerRoute(
                     "default",
-                    "{controller=Courses}/{action=Index}/{id?}"
+                    "{controller=Home}/{action=Index}/{id?}"
                     );
             });
         }
