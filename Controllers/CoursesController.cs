@@ -12,9 +12,9 @@ namespace WebApplication4.Controllers
         {
             return View();
         }
-        public IActionResult Details(string id)
+        public IActionResult Detail(string id)
         {
-            return Content($"Sono Detail con id {id}");
+            return View();
         }
 
     }
