@@ -1,0 +1,28 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "css-layout@1.1.1",
+      "destination": "wwwroot/Lib/css-layout/",
+      "files": [
+        "css-layout.min.js"
+      ]
+    },
+    {
+      "library": "require-css@0.1.10",
+      "destination": "wwwroot/Lib/require-css/",
+      "files": [
+        "css.min.js"
+      ]
+    },
+    {
+      "library": "fontawesome-iconpicker@3.2.0",
+      "destination": "wwwroot/Lib/fontawesome-iconpicker/"
+    },
+    {
+      "library": "bootstrap@5.3.0",
+      "destination": "wwwroot/Lib/bootstrap/"
+    }
+  ]
+}
