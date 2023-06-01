@@ -17,12 +17,12 @@
       ]
     },
     {
-      "library": "fontawesome-iconpicker@3.2.0",
-      "destination": "wwwroot/Lib/fontawesome-iconpicker/"
-    },
-    {
       "library": "bootstrap@5.3.0",
       "destination": "wwwroot/Lib/bootstrap/"
+    },
+    {
+      "library": "fontawesome-iconpicker@3.2.0",
+      "destination": "wwwroot/Lib/fontawesome-iconpicker/"
     }
   ]
 }
