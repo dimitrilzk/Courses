@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Models\Services\Infrastructure\" />
     <Folder Include="wwwroot\Lib\" />
   </ItemGroup>
 
