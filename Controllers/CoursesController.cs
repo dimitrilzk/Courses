@@ -1,20 +1,29 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using WebApplication4.Models.Services.Application;
+using WebApplication4.Models.ViewModels;
 
 namespace WebApplication4.Controllers
 {
     public class CoursesController : Controller
     {
-        //public IActionResult Details([FromRoute(Name = "id")] string CourseId, [FromQuery(Name = "p")] string prova)
-        //{
-        //    return Content($"Sono Detail con id {CourseId}");
-        //}
+        private readonly ICourseService courseService;
+
+        public CoursesController(ICourseService courseService)
+        {
+            this.courseService = courseService;
+        }
         public IActionResult Index()
         {
-            return Content("Sono Index");
+            ViewData["Title"] = "Catalogo dei corsi";
+            List<CourseViewModel> courses= courseService.GetCourses();
+            return View(courses);
         }
-        public IActionResult Details(string id)
+        public IActionResult Detail(int id)
         {
-            return Content($"Sono Detail con id {id}");
+            CourseDetailViewModel viewModel = courseService.GetCourse(id);
+            ViewData["Title"] = viewModel.Title;
+            return View(viewModel);
         }
 
     }

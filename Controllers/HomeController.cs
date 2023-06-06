@@ -6,7 +6,7 @@ namespace WebApplication4.Controllers
     {
         public IActionResult Index()
         {
-            return Content("Sono la index della pagina Home");
+            return View();
         }
     }
 }
