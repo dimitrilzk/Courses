@@ -7,19 +7,23 @@ namespace WebApplication4.Controllers
 {
     public class CoursesController : Controller
     {
-        //public IActionResult Details([FromRoute(Name = "id")] string CourseId, [FromQuery(Name = "p")] string prova)
-        //{
-        //    return Content($"Sono Detail con id {CourseId}");
-        //}
+        private readonly ICourseService courseService;
+
+        public CoursesController(ICourseService courseService)
+        {
+            this.courseService = courseService;
+        }
         public IActionResult Index()
         {
-            CourseService courseService = new CourseService();
-            List<CourseViewModel> courses= courseService.GetServices();
+            ViewData["Title"] = "Catalogo dei corsi";
+            List<CourseViewModel> courses= courseService.GetCourses();
             return View(courses);
         }
-        public IActionResult Detail(string id)
+        public IActionResult Detail(int id)
         {
-            return View();
+            CourseDetailViewModel viewModel = courseService.GetCourse(id);
+            ViewData["Title"] = viewModel.Title;
+            return View(viewModel);
         }
 
     }

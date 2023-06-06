@@ -1,54 +1,63 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
     Layout = "_Layout";
 }
-
+@model CourseDetailViewModel
 <section>
     <div class="row">
         <div class="col-md-9">
-            <h1>Titolo del corso</h1>
+            <h1>@Model.Title</h1>
         </div>
         <div class="col-md-3 d-flex align-items-end">
-            <a href="#" class="btn btn-warning form-control">Iscriviti</a>
+            <a href="#" class="btn btn-warning btn-lg btn-block form-control">Iscriviti</a>
         </div>
     </div>
     <div class="row">
         <div class="col-md-9">
-            <p>Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.</p>
-            <p>Placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio eget lorem nulla condimentum tempor mattis ut vitae feugiat augue cras ut metus a risus iaculis scelerisque eu ac ante.</p>
-            <p>Fusce non varius purus aenean nec magna felis fusce vestibulum velit mollis odio sollicitudin lacinia aliquam posuere, sapien elementum lobortis tincidunt, turpis dui ornare nisl, sollicitudin interdum turpis nunc eget.</p>
-            <p>Sem nulla eu ultricies orci praesent id augue nec lorem pretium congue sit amet ac nunc fusce iaculis lorem eu diam hendrerit at mattis purus dignissim vivamus mauris tellus, fringilla.</p>
-        </div>
+            <p>@Model.Description</p>
+            </div>
         <div class="col-md-3">
             <aside>
-                <author>di Nome Autore</author>
-                <div>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
+                <author>di @Model.Author</author>
+                <div title="@Model.Rating">
+                    @for (int i = 1; i <= 5; i++)
+                    {
+                        if (Model.Rating >= i)
+                        {
+                            <i class="fa-solid fa-star"></i>
+                        }
+                        else if (Model.Rating > i - 1)
+                        {
+                            <i class="fa-solid fa-star-half"></i>
+                        }
+                        else
+                        {
+                            <i class="fa-regular fa-star"></i>
+                        }
+                    }
                 </div>
-                <div>EUR 10,99 <br /><s>EUR 12,99</s></div>
-                <img src="~/log.png" alt="logo" width="50" />
+                <div>@Model.CurrentPrice 
+                    @if (!Model.CurrentPrice.Equals(Model.FullPrice))
+                    {
+                        <br /><s>@Model.FullPrice</s>
+                    }
+                </div>
+                    <img src="@Model.ImagePath" alt="logo" width="50" />
             </aside>
         </div>
     </div>
 </section>
 
 <section>
-    <h2>Lezioni</h2>
-    @for (int i = 1; i <= 10; i++)
+    <h2>Lezioni (@Model.Lessons.Count)</h2>
+    @foreach (var lesson in Model.Lessons)
     {
         <hr />
         <div class="row">
             <div class="col-md-9 d-flex align-items-center">
-                <a href="#">Titolo della lezione @i</a>
+                <a href="#">@lesson.Title</a>
             </div>
             <div class="col-md-3 d-flex align-items-center">
-                <i class="far fa-clock"></i><time>1m 30s</time>
+                <i class="far fa-clock"></i><time>@lesson.Duration.ToString("m'm 's's'")</time>
             </div>
         </div>
     }
@@ -58,7 +67,7 @@
             Totale
         </div>
         <div class="col-md-3 d-flex align-items-center">
-            <i class="far fa-clock"></i><time>15m 0s</time>
+            <i class="far fa-clock"></i><time>@Model.TotalCourseDuration.ToString("m'm 's's'")</time>
         </div>
     </div>
 </section>

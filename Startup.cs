@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApplication4.Models.Services.Application;
 
 namespace WebApplication4
 {
@@ -16,8 +17,8 @@ namespace WebApplication4
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
             services.AddMvc();
+            services.AddTransient<ICourseService, CourseService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
