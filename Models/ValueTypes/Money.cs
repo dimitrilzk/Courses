@@ -38,5 +38,16 @@ namespace WebApplication4.Models.ValueTypes
         {
             return $"{Currency} {Amount:#.00}";
         }
+        public override bool Equals(object obj)
+        {
+            if(obj is Money mo)
+            {
+                return Currency == mo.Currency && mo.amount == Amount;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

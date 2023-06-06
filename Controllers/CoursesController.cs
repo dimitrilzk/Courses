@@ -13,7 +13,7 @@ namespace WebApplication4.Controllers
         //}
         public IActionResult Index()
         {
-            var courseService = new CourseService();
+            CourseService courseService = new CourseService();
             List<CourseViewModel> courses= courseService.GetServices();
             return View(courses);
         }
