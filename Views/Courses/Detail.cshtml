@@ -5,4 +5,60 @@
     Layout = "_Layout";
 }
 
-<h1>Sono la view per l'action Detail del CoursesController</h1>
+<section>
+    <div class="row">
+        <div class="col-md-9">
+            <h1>Titolo del corso</h1>
+        </div>
+        <div class="col-md-3 d-flex align-items-end">
+            <a href="#" class="btn btn-warning form-control">Iscriviti</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9">
+            <p>Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.</p>
+            <p>Placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio eget lorem nulla condimentum tempor mattis ut vitae feugiat augue cras ut metus a risus iaculis scelerisque eu ac ante.</p>
+            <p>Fusce non varius purus aenean nec magna felis fusce vestibulum velit mollis odio sollicitudin lacinia aliquam posuere, sapien elementum lobortis tincidunt, turpis dui ornare nisl, sollicitudin interdum turpis nunc eget.</p>
+            <p>Sem nulla eu ultricies orci praesent id augue nec lorem pretium congue sit amet ac nunc fusce iaculis lorem eu diam hendrerit at mattis purus dignissim vivamus mauris tellus, fringilla.</p>
+        </div>
+        <div class="col-md-3">
+            <aside>
+                <author>di Nome Autore</author>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <div>EUR 10,99 <br /><s>EUR 12,99</s></div>
+                <img src="~/log.png" alt="logo" width="50" />
+            </aside>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Lezioni</h2>
+    @for (int i = 1; i <= 10; i++)
+    {
+        <hr />
+        <div class="row">
+            <div class="col-md-9 d-flex align-items-center">
+                <a href="#">Titolo della lezione @i</a>
+            </div>
+            <div class="col-md-3 d-flex align-items-center">
+                <i class="far fa-clock"></i><time>1m 30s</time>
+            </div>
+        </div>
+    }
+    <hr />
+    <div class="row">
+        <div class="col-md-9 d-flex align-items-center">
+            Totale
+        </div>
+        <div class="col-md-3 d-flex align-items-center">
+            <i class="far fa-clock"></i><time>15m 0s</time>
+        </div>
+    </div>
+</section>
