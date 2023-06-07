@@ -5,6 +5,7 @@
     <UserSecretsId>2004d1da-3e3b-4269-bd1d-f1cae74a595e</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>.</DockerfileContext>
+	  
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,8 +13,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Services\Infrastructure\" />
+    <Folder Include="Data\" />
     <Folder Include="wwwroot\Lib\" />
+	  <Compile Remove="Models/Services/Application/CourseService.cs" />
+	  
   </ItemGroup>
 
 </Project>

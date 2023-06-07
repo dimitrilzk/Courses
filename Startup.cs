@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApplication4.Models.Services.Application;
+using WebApplication4.Models.Services.Infrastructure;
 
 namespace WebApplication4
 {
@@ -18,7 +19,8 @@ namespace WebApplication4
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddTransient<ICourseService, CourseService>();
+            services.AddTransient<ICourseService, AdoNetCourseService>();
+            services.AddTransient<IDatabaseAccessor, SqliteDatabaseAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
