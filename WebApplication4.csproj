@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Services\Infrastructure\" />
+    <Folder Include="Data\" />
     <Folder Include="wwwroot\Lib\" />
 	  <Compile Remove="Models/Services/Application/CourseService.cs" />
 	  
